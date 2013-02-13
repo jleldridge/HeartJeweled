@@ -1,0 +1,16 @@
+package model;
+
+import java.awt.image.*;
+
+public class Heart{
+	public String color;
+	public int x, y;
+	public BufferedImage sprite;
+
+	public Heart(String color, int x, int y, BufferedImage sprite){
+		this.color = color;
+		this.x = x;
+		this.y = y;
+		this.sprite = sprite;
+	}
+}
