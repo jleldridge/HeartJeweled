@@ -11,9 +11,10 @@ import java.io.File;
 public class Engine implements KeyListener{
 	final int CELL_SIZE = 50;
 	public BufferedImage redHeartSprite, blueHeartSprite, yellowHeartSprite, purpleHeartSprite, pinkHeartSprite;
+	public BufferedImage background;
 	public Heart[][] gameGrid;
-	public int sRow = 0, sCol = 0;
-	public int mRow = 0, mCol = 0;
+	public int sRow, sCol;
+	public int mRow, mCol;
 	int rows, cols;
 	public Stack<Integer> directionKeyDown;
 	public boolean selecting;
@@ -22,9 +23,11 @@ public class Engine implements KeyListener{
 	public Engine(){
 		rows = 600/CELL_SIZE;
 		cols = 800/CELL_SIZE;
+		sRow = mRow = rows/2; mCol = sCol = cols/2;
 		gameGrid = new Heart[rows][cols];
 		directionKeyDown = new Stack<Integer>();
 		try{
+			background = ImageIO.read(getClass().getResource("/resources/HeartJeweledBackground.png"));
 			redHeartSprite = ImageIO.read(getClass().getResource("/resources/redHeart.png"));
 			blueHeartSprite = ImageIO.read(getClass().getResource("/resources/blueHeart.png"));
 			purpleHeartSprite = ImageIO.read(getClass().getResource("/resources/purpleHeart.png"));
@@ -60,7 +63,7 @@ public class Engine implements KeyListener{
 				directionKeyDown.clear();
 			}
 			if(selecting){
-				if(mRow > 0 && mCol > 0 && (Math.abs(sRow - mRow) == 1) && (Math.abs(sCol - mCol) == 0)){
+				if(mRow >= 0 && mCol >= 0 && (Math.abs(sRow - mRow) == 1) && (Math.abs(sCol - mCol) == 0)){
 					Heart temp;
 					
 					temp = gameGrid[sRow][sCol];
@@ -69,7 +72,7 @@ public class Engine implements KeyListener{
 					
 					mRow = -1;
 					mCol = -1;
-				}else if(mRow > 0 && mCol > 0 && (Math.abs(sRow - mRow) == 0) && (Math.abs(sCol - mCol) == 1)){
+				}else if(mRow >= 0 && mCol >= 0 && (Math.abs(sRow - mRow) == 0) && (Math.abs(sCol - mCol) == 1)){
 					Heart temp;
 
 					temp = gameGrid[sRow][sCol];
@@ -131,6 +134,8 @@ public class Engine implements KeyListener{
 	}
 
 	public void render(Graphics g){
+		g.drawImage(background, 0, 0, null);
+
 		for(int i = 0; i < rows; i++){
 			g.setColor(Color.white);
 			g.fillRect(0, i*CELL_SIZE, 800, 1);	

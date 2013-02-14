@@ -1,0 +1,4 @@
+cd %CD%/src
+javac -cp ./ -d ../bin main/GameWindow.java
+cd ..
+

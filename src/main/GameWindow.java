@@ -3,6 +3,7 @@ package main;
 import java.awt.image.*;
 import java.awt.*;
 import javax.swing.*;
+import javax.imageio.ImageIO;
 import engine.*;
 
 public class GameWindow{

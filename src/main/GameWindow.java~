@@ -3,6 +3,7 @@ package main;
 import java.awt.image.*;
 import java.awt.*;
 import javax.swing.*;
+import javax.imageio.ImageIO;
 import engine.*;
 
 public class GameWindow{
@@ -23,7 +24,7 @@ public class GameWindow{
 		canvas.setIgnoreRepaint(true);
 
 		
-		//canvas.addKeyListener(controller);
+		canvas.addKeyListener(engine);
 		window.add(canvas);
 		window.pack();
 		window.setVisible(true);
@@ -33,6 +34,7 @@ public class GameWindow{
 		
 		BufferedImage screen = new
 			BufferedImage(800, 600, BufferedImage.TYPE_INT_ARGB);
+		BufferedImage background = ImageIO.read(getClass().getResource("/resources/HeartJeweledBackground.png"));
 		Graphics g = screen.getGraphics();
 		Graphics ag = canvas.getGraphics();
 		
