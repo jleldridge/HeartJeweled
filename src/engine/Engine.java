@@ -25,11 +25,11 @@ public class Engine implements KeyListener{
 		gameGrid = new Heart[rows][cols];
 		directionKeyDown = new Stack<Integer>();
 		try{
-			redHeartSprite = ImageIO.read(getClass().getResource("/redHeart.png"));
-			blueHeartSprite = ImageIO.read(getClass().getResource("/blueHeart.png"));
-			purpleHeartSprite = ImageIO.read(getClass().getResource("/purpleHeart.png"));
-			pinkHeartSprite = ImageIO.read(getClass().getResource("/pinkHeart.png"));
-			yellowHeartSprite = ImageIO.read(getClass().getResource("/yellowHeart.png"));
+			redHeartSprite = ImageIO.read(getClass().getResource("/resources/redHeart.png"));
+			blueHeartSprite = ImageIO.read(getClass().getResource("/resources/blueHeart.png"));
+			purpleHeartSprite = ImageIO.read(getClass().getResource("/resources/purpleHeart.png"));
+			pinkHeartSprite = ImageIO.read(getClass().getResource("/resources/pinkHeart.png"));
+			yellowHeartSprite = ImageIO.read(getClass().getResource("/resources/yellowHeart.png"));
 		}catch(Exception e){
 			e.printStackTrace();
 		}
